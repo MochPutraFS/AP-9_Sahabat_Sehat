@@ -68,8 +68,11 @@ def quiz_Easy(n):
             score += 1
         else:
             if choices[ans - 1] != correct:
-                choices[ans - 1] = "SALAH"
-                print(f"Jawaban yang tepat adalah : {choices[ans - 1]} \nkarena {name} memiliki {correct} kkal.")
+                if ans == 1:
+                    print(f"Jawaban yang tepat : SALAH .")
+                elif ans == 2:
+                    print(f"Jawaban yang tepat : BENAR .")
+                print(f"Karena {name} memiliki {correct} kkal.")
     print(f"\nSkor akhir kamu: {score}/{n}")
 
 def quiz_Hard(n):
