@@ -62,3 +62,6 @@ while True:
     elif pilih == '10':
         print('program dihentikan.')
         break
+
+if __name__ == '__main__':
+    main()

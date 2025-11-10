@@ -46,7 +46,10 @@ def validasi_tipe_quiz():
             tipe = int(input("\ntipe soal??\n1.Easy level    🟢\n2.Normal level  🟡\n3.Hard level    🔴\n4.⛔stop program\njawaban kamu :"))
             if tipe == 4:
                 return tipe
-            if tipe < 1 or tipe > 3 and tipe != 4:
+            elif tipe > 30:
+                print('soal terlalu banyak.')
+                continue
+            elif tipe < 1 or tipe > 3 and tipe != 4:
                 print("❌pilihan tidak tersedia.")
                 continue
             else:
