@@ -47,19 +47,17 @@ def program_bmi():
 
     # Tampilkan hasil
     kode, kategori = klasifikasi_bmi(bmi_hasil)
-    
+
     print("\n--- Hasil Perhitungan BMI ---")
     print(f"Berat Badan: {berat} kg")
     print(f"Tinggi Badan: {tinggi_cm} cm")
     print(f"Nilai BMI Anda: **{bmi_hasil:.2f}**")
     print(f"Kategori: **{kategori}**")
-    
+
     if kode > 2:
         print("\n*Status ini menunjukkan potensi risiko kesehatan yang meningkat.*")
     elif kode == 1:
         print("\n*Status ini menunjukkan potensi risiko kesehatan.*")
     else:
         print("\n*Status ini berada dalam kisaran berat badan yang sehat.*")
-
-if __name__ == "__main__":
-    program_bmi()
+    return bmi_hasil, kategori, kode

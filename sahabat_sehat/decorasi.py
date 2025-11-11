@@ -59,3 +59,12 @@ def validasi_tipe_quiz():
             print("‼️input tidak valid.")
             continue
 
+def validasi_user_water():
+    while True:
+        try:
+            ans = int(input('masukkan id pemilik BMI :'))
+            return ans
+
+        except ValueError:
+            print("‼️input tidak valid.")
+            break

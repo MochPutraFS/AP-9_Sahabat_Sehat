@@ -4,6 +4,8 @@ from sahabat_sehat.quiz import quiz_Normal, quiz_Easy, quiz_Hard
 from sahabat_sehat.decorasi import decorate, validasi_menu, validasi_quiz, validasi_tipe_quiz
 from sahabat_sehat.BMI import program_bmi
 from sahabat_sehat.progress import menu_progres
+from sahabat_sehat.water_plan import water_plan
+from sahabat_sehat.history import input_history, show_history, delete_history, ambil_data
 
 
 decorate()
@@ -30,6 +32,7 @@ while True:
     elif pilih == '2':
         tipe = validasi_tipe_quiz()
         if tipe == 4:
+            print("program terminated.")
             continue
         num = validasi_quiz(len(FOODS))
         if tipe == 1:
@@ -39,22 +42,23 @@ while True:
         elif tipe == 3:
             quiz_Hard(num)
     elif pilih == '3':
-        program_bmi()
+        input_history()
 
     elif pilih == '4':
-        pass
+        bmi = ambil_data(1)
+        print(bmi)
 
     elif pilih == '5':
         pass
 
     elif pilih == '6':
-        pass
+        show_history
 
     elif pilih == '7':
-        pass
+        delete_history()
 
     elif pilih == '8':
-        pass
+        water_plan()
     
     elif pilih == '9':
         menu_progres()
@@ -62,6 +66,3 @@ while True:
     elif pilih == '10':
         print('program dihentikan.')
         break
-
-if __name__ == '__main__':
-    main()
