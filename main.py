@@ -1,10 +1,12 @@
-from sahabat_sehat import progress
 from sahabat_sehat.food import list_foods, show_food_detail, FOODS
 from sahabat_sehat.quiz import quiz_Normal, quiz_Easy, quiz_Hard
 from sahabat_sehat.decorasi import decorate, validasi_menu, validasi_quiz, validasi_tipe_quiz
-from sahabat_sehat.BMI import program_bmi
+from sahabat_sehat.BMI import program_bmi, input_history
 from sahabat_sehat.progress import menu_progres
-
+from sahabat_sehat.workout_plan import workout_plan
+from sahabat_sehat.history import return_id, show_history, delete_history, return_id
+from sahabat_sehat.calory_control import main, display_recommendation, generate_meal_plan, get_calorie_input
+from sahabat_sehat.water_plan import water_plan
 
 decorate()
 while True:
@@ -38,23 +40,25 @@ while True:
             quiz_Normal(num)
         elif tipe == 3:
             quiz_Hard(num)
+
     elif pilih == '3':
-        program_bmi()
+        input_history()
 
     elif pilih == '4':
-        pass
+        kode = return_id()
+        workout_plan(kode)
 
     elif pilih == '5':
-        pass
+        main()
 
     elif pilih == '6':
-        pass
+        show_history()
 
     elif pilih == '7':
-        pass
+        delete_history()
 
     elif pilih == '8':
-        pass
+        water_plan()
     
     elif pilih == '9':
         menu_progres()

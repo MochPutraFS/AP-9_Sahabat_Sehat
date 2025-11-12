@@ -55,4 +55,3 @@ def validasi_tipe_quiz():
         except ValueError:
             print("‼️input tidak valid.")
             continue
-

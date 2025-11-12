@@ -83,16 +83,32 @@ def input_history():
     entry_id, bmi, kategori, kode = program_bmi()
 
     if not entry_id:
-        print("ID tidak boleh kosong.")
+        print("‼️ID tidak boleh kosong.")
         return
     if bmi <= 0:
-        print("Data BMI tidak valid.")
+        print("‼️Data BMI tidak valid.")
         return
 
+    existing_ids = set()
     try:
-        f = open(FILE_NAME, 'a')
-        f.write(f"{entry_id}|{bmi:.2f}|{kategori:20}\n")
-        f.close()
+        with open(FILE_NAME, 'r') as f:
+            for line in f:
+                parts = line.strip().split('|')
+                if parts:
+                    existing_ids.add(parts[0])
+    except FileNotFoundError:
+        pass
+
+    while entry_id in existing_ids:
+        print(f"ID '{entry_id}' sudah digunakan. Silakan masukkan ID lain.\n❌Data gagal tersimpan")
+        entry_id = input("Masukkan ID baru: ").strip()
+        if not entry_id:
+            print("‼️ID tidak boleh kosong.")
+            return
+
+    try:
+        with open(FILE_NAME, 'a') as f:
+            f.write(f"{entry_id}|{bmi:.2f}|{kategori:20}|{kode}\n")
         print("Data berhasil disimpan.")
-    except:
-        print("Gagal menyimpan data.")
+    except Exception as e:
+        print("Gagal menyimpan data:", e)
